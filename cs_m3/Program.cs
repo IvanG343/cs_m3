@@ -110,19 +110,57 @@ namespace cs_m3 {
                 }
             } while (!lengthIsNumber || length < 0);
 
-            for(int i = 1; i <= length; i++) {
+            for (int i = 1; i <= length; i++) {
                 Console.Write($"Введите {i} число и нажмите Enter: ");
                 int currentNum = int.Parse(Console.ReadLine());
-                if(min > currentNum) {
+                if (min > currentNum) {
                     min = currentNum;
                 }
             }
 
             Console.WriteLine($"Наименьшее число в последовательности: {min}");
+            Console.WriteLine();
             Console.ReadKey();
 
             #endregion
 
+            #region Task 5
+
+            Random rand = new Random();
+            int max;
+            int targetNum;
+            
+
+            Console.WriteLine("Игра угадай число!");
+            Console.Write("Введите случайно целое положительно число: ");
+            max = int.Parse(Console.ReadLine());
+            targetNum = rand.Next(1, max+1);
+
+            Console.WriteLine($"А теперь попробуй угадать случайное число в диапозоне от 1 и до {max}, а если ты устал, то просто нажми Enter: ");
+
+            do {
+                bool play = int.TryParse(Console.ReadLine(), out int yourNum);
+                if(play) {
+                    if (targetNum > yourNum) {
+                        Console.WriteLine($"Загаданное число больше {yourNum}");
+                    } else if (targetNum > yourNum) {
+                        Console.WriteLine($"Загаданное число меньше {yourNum}");
+                    } else {
+                        Console.WriteLine("Вы угадали!");
+                        break;
+                    }
+                } else {
+                    Console.WriteLine($"Игра окончена, загаданное число: {targetNum}");
+                    break;
+                }
+            } while (true);
+
+
+
+            Console.WriteLine();
+            Console.ReadLine();
+
+            #endregion
 
         }
     }
