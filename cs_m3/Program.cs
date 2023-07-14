@@ -143,7 +143,7 @@ namespace cs_m3 {
                 if(play) {
                     if (targetNum > yourNum) {
                         Console.WriteLine($"Загаданное число больше {yourNum}");
-                    } else if (targetNum > yourNum) {
+                    } else if (targetNum < yourNum) {
                         Console.WriteLine($"Загаданное число меньше {yourNum}");
                     } else {
                         Console.WriteLine("Вы угадали!");
